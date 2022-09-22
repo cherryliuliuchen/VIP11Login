@@ -12,12 +12,7 @@ import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * @Classname ${NAME}
- * @Description 类型说明
- * @Date 2021/12/29 21:56
- * @Created by 特斯汀Roy
- */
+
 @WebServlet
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
