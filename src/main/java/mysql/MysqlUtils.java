@@ -19,7 +19,7 @@ public class MysqlUtils {
 
         } catch(Exception e){
             e.printStackTrace();
-            System.out.println("连接数据库失败");
+            System.out.println("Database connection failed");
 
         }
 
@@ -49,10 +49,10 @@ public class MysqlUtils {
             Statement statement = mycon.createStatement();
             String sql = "select * from userinfo where username='chen' and `password`='880705'";
             sql = sql.replace("chen", user).replace("880705",pwd);
-            System.out.println("执行的sql语句是"+sql);
+            System.out.println("Current SQL script is "+sql);
             ResultSet resultSet = statement.executeQuery(sql);
             if(resultSet!=null&&resultSet.next()){
-                //可加
+
                 statement.close();
                 resultSet.close();
                 return true;
@@ -70,13 +70,13 @@ public class MysqlUtils {
     public List<Map<String,String>> queryDatas(String sql){
         try {
             Statement statement = mycon.createStatement();
-            System.out.println("执行的sql语句是"+sql);
+            System.out.println("Current sql script is "+sql);
             ResultSet resultSet = statement.executeQuery(sql);
-            //获取查询结果元信息，也就是列名等。
+
             ResultSetMetaData metaData = resultSet.getMetaData();
             List<Map<String,String>> allDatas=new ArrayList<>();
             while (resultSet!=null&&resultSet.next()){
-                //循环每个列名，将对应的值存到map里
+
                 Map<String,String> lineData=new HashMap<>();
                 for(int index=1;index<=metaData.getColumnCount();index++){
                     String columnName = metaData.getColumnName(index);

@@ -1,19 +1,19 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>VIP11特斯汀自己的网站</title>
+    <title>Cherry's website</title>
     <link rel="shortcut icon" href="file:///D:\favicon.ico" type="image/x-icon">
     <style> h1,h6{color:red; background: #ffff00;font-family:fangsong}  h2{color:blue} </style>
     <link rel="stylesheet" type="text/css" href="css/VIP11css.css">
     <script>
         function eatApple(){
             var apple= document.getElementById("apple");
-            apple.innerText='哎呀苹果被吃完了'
+            apple.innerText='Cherry: Carrot is eaten by rabbit'
         }
 
         function buyApple(){
             var apple= document.getElementById("apple");
-            apple.innerText='又买了一个新苹果'
+            apple.innerText='Nicole: Let\'s buy a new one'
         }
     </script>
     <script src='js/VIP11Js.js'></script>
@@ -21,60 +21,63 @@
 
 </head>
 <body>
-<h1>这是最大的标题</h1>
-<h2 onclick="alert('h2元素被点击了')">jingle bell</h2>
+<h1>Project work</h1>
+<h2 onclick="alert('h2 element is clicked')">jingle bell</h2>
 <h6 onmouseover='moveOn()'>merry christmas!</h6>
-<div id='apple' onmouseover='eatApple()' onmouseout='buyApple()'>平安夜吃苹果</div>
-<div onclick="ajaxlogin()">ajax登录点这里！！！</div>
-<p>段落元素的苹果更大</p>
-<span>这个元素</span>
+<div id='apple' onmouseover='eatApple()' onmouseout='buyApple()'>Let's eat apples on christmas eve </div>
+<div onclick="ajaxlogin()">Login</div>
+<p>Apples for paragraph element are bigger </p>
+<span>This element</span>
 <br>
-<span>不换行</span>
-<!--    分界线-->
-<hr>
+<span>No line breaks</span>
+<!--    line breaks-->
+
+
 
 <div>
-    <a href="https://www.51job.com" style="color: #f9db03;background:green;font-size: x-large;" target="_blank" title="工作找不到咋办">
-        找工作上51job
-        <!--            注意单纯的img元素不具备跳转链接的功能，放在a元素里面就可以-->
-        <img src="https://img03.51jobcdn.com/im/2016/logo/logo_blue.png">
-    </a>
-</div>f
-<hr>
-<div>
-    <h3>接下来我们来写一些form和input元素</h3>
+    <h3>Let's write some form and input elements</h3>
 
-    <form action="./Login" method="post">
-        <!-- 调用nowInput方法的时候，传参this.value，表示当前元素自己的value值。 -->
-        <input name="user" oninput="nowInput(this.value)" type="text" placeholder="请输入用户名" >
+    <form action="./login" method="post">
+
+        <input name="user" oninput="nowInput(this.value)" type="text" placeholder="Please enter your name" >
         <br>
-        <input name="password" type="password" placeholder="请输入密码">
+        <input name="password" type="password" placeholder="Please enter you password">
         <br>
-<!--        <input type="submit" value="点击登录" >-->
-        <button type="button" onclick="ajaxlogin()" value="Ajax登录">Ajax登录</button>
+        <input type="submit" value="Click and login" >
+        <button type="button" onclick="ajaxlogin()" value="Ajaxlogin">Ajaxlogin</button>
         <br>
-        单选框实现:
-        <label><input name="gift" type="radio" value="袜子"> 袜子</label>
-        <label><input name="gift" type="radio" value="口红"> 口红</label>
-        <!--    直接在后面写的文字，点文字是无法选中的        -->
-        <input name="gift" type="radio" value="13香"> 13香
-        <input name="time" type="radio" value="平安夜"> 平安夜
+
+        <label><input name="gift" type="radio" value="Socks"> Socks</label>
+        <label><input name="gift" type="radio" value="Lipstick"> Lipstick</label>
+
+        <input name="gift" type="radio" value="Turkey"> Turkey
+        <input name="time" type="radio" value="平安夜"> christmas eve
         <br>
-        多选框：
-        <label><input type="checkbox" name="food" value="火锅"> 火锅</label>
-        <label><input type="checkbox" name="food" value="西餐"> 西餐</label>
+
+        <label><input type="checkbox" name="food" value="Hot pot"> Hot pot</label>
+        <label><input type="checkbox" name="food" value="Meatball"> Meatball</label>
         <br>
-        娱乐活动下拉框：
-        <select name="娱乐活动">
-            <option value="看电影">看电影</option>
-            <option value="play games">吃鸡</option>
-            <option value="ski">滑雪</option>
+
+        <select name="Hobby">
+            <option value="Hikking">Hikking</option>
+            <option value="Dancing">Dancing</option>
+            <option value="Swimming">Swimming</option>
         </select>
     </form>
 </div>
 
+<hr>
+
 <div>
-    下面是个iframe元素：
+    <a href="https://www.linkedin.com" style="color: #f9db03;background:green;font-size: x-large;" target="_blank" title="工作找不到咋办">
+        Go to linkdin to find a job
+        <img src="https://yourpersonalworkforce.org/wp-content/uploads/2021/04/Linkedin-outreach.png">
+    </a>
+</div>
+<hr>
+
+<div>
+    iframe element
     <iframe src="VIP11Iframe.html" height="300px" frameborder="0"></iframe>
 </div>
 

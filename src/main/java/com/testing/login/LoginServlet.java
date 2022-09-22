@@ -20,8 +20,8 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         String loginName = request.getParameter("user");
         String password = request.getParameter("password");
-        System.out.println("传参的用户名是"+loginName);
-        System.out.println("传参的密码是"+password);
+        System.out.println("Username as a parameter is"+loginName);
+        System.out.println("Password as a parameter is"+password);
 
 
         Pattern illW=Pattern.compile("[\\W\\-]");
@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
 
         HttpSession nowSession = request.getSession();
         String sessionid = request.getSession().getId();
-        System.out.println("sessionid是"+sessionid);
+        System.out.println("sessionid is"+sessionid);
 
         Result result=new Result();
 
@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 
                     if (mu.loginCheck(loginName, password)) {
                         result.setStatus("200");
-                        result.setMsg("恭喜您登录成功");
+                        result.setMsg("Congratulation！ You are logged in successfully");
                         nowSession.setAttribute("user", loginName);
                         nowSession.setMaxInactiveInterval(120);
                         Cookie jsessionId = new Cookie("JSESSIONID",sessionid);
@@ -55,59 +55,52 @@ public class LoginServlet extends HttpServlet {
                         response.addCookie(jsessionId);
 
 
-                        //response.getWriter().append("恭喜您登录成功");
+                        //response.getWriter().append("Congratulation！ You are logged successfully");
                     } else {
 
                         result.setStatus("-1");
-                        result.setMsg("用户名密码错误！");
-                        //response.getWriter().append("用户名密码错误！");
+                        result.setMsg("User name or password is wrong！");
+                        //response.getWriter().append("User name or passport is wrong！");
                     }
                 } else {
                     result.setStatus("-2");
-                    result.setMsg("输入了非法字符，请检查");
-                    //response.getWriter().append("输入了非法字符，请检查");
+                    result.setMsg("Illegal characters entered, please check");
+                    //response.getWriter().append("Illegal characters entered, please check");
                 }
             } else {
                 result.setStatus("-3");
-                result.setMsg("用户名密码不能为空");
+                result.setMsg("Username and password cannot be empty");
 
-                // response.getWriter().append("用户名密码不能为空");
+                // response.getWriter().append("Username and password cannot be empty");
             }
         } else {
             result.setStatus("-4");
-            result.setMsg("已经有用户"+nowSession.getAttribute("user")+"登录过了，不能再次登录!");
+            result.setMsg("Username: "+nowSession.getAttribute("user")+" have already logged in, you cannot log in again!");
 
         }
         String resultJson = JSONObject.toJSONString(result);
-        System.out.println("结果字符串为"+resultJson);
+        System.out.println("The resulting string is"+resultJson);
         response.getWriter().append(resultJson);
 
 
 
-        //response.getWriter().append("第一次请求post接口成功！");
+
     }
 
-/*        if("Roy".equals(loginName)&&"123456".equals(password)){
-            response.getWriter().append("恭喜您登录成功");
-        }else{
-            response.getWriter().append("用户名密码错误！");
-        }
-        response.getWriter().append("第一次请求post接口成功！");*/
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
-        //获取请求中user和password参数。
         String loginName = request.getParameter("user");
         String password = request.getParameter("password");
         if("Roy".equals(loginName)&&"123456".equals(password)){
-            response.getWriter().append("恭喜您登录成功");
+            response.getWriter().append("Congratulation！ You are logged in successfully");
         }else{
-            response.getWriter().append("用户名密码错误！");
+            response.getWriter().append("User name or password is wrong！");
         }
 
 
-        response.getWriter().append("第一次请求Get接口成功！");
+        response.getWriter().append("The first request to the Get interface successful!");
     }
 }

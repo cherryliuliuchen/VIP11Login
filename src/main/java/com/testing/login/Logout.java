@@ -16,17 +16,17 @@ public class Logout extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json;charset=utf-8");
         HttpSession session = request.getSession();
-        System.out.println("登出接口中的sessionid是"+session.getId());
+        System.out.println("The sessionid in the logout interface is"+session.getId());
         Result result=new Result();
-        //判断是否有用户登录
+
         if(session.getAttribute("user")==null){
             result.setStatus("-1");
-            result.setMsg("当前没有用户登录");
+            result.setMsg("No user is currently logged in");
         }else{
             result.setStatus("0");
-            result.setMsg("当前登录的用户是"+session.getAttribute("user")+"已为您退出登录");
+            result.setMsg("The currently logged in user is "+session.getAttribute("user")+" Signed out for you");
         }
-        //不管有没有用户登录，都重置一下session。
+        //reset session
         session.invalidate();
         String resultJson = JSONObject.toJSONString(result);
         response.getWriter().append(resultJson);

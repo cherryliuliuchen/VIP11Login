@@ -22,7 +22,7 @@ public class GetUser extends HttpServlet {
         Result result = new Result();
         if(session.getAttribute("user")==null){
             result.setStatus("-1");
-            result.setMsg("必须登录之后才能查询用户信息");
+            result.setMsg("You must be logged in to query user information");
 
         }else{
             String user=session.getAttribute("user").toString();
@@ -31,7 +31,7 @@ public class GetUser extends HttpServlet {
             mu.createConByProp();
             List<Map<String, String>> userinfoList = mu.queryDatas(sql);
             result.setStatus("0");
-            result.setMsg("查询用户信息成功");
+            result.setMsg("User information query successful");
             result.setData(userinfoList.get(0));
 
 
